@@ -14,6 +14,7 @@ const addItems = document.querySelector('.add-items');
     };
     // console.log(item);
     items.push(item);
+    populateList(items, itemsList);
     this.reset();
   }
 
@@ -21,7 +22,8 @@ const addItems = document.querySelector('.add-items');
     platesList.innerHTML = plates.map((plate, i) => {
         return `
             <li>
-                <label for="">${plate.text}</label>
+                <input type="checkbox" data-index=${i} id="item${i}" />
+                <label for="item${i}">${plate.text}</label>
             </li>
         `;
     }).join("");
