@@ -30,6 +30,21 @@ const items = JSON.parse(localStorage.getItem("items")) || [];
     }).join("");
   }
 
+  function toggleDone(e) {
+      if (!e.target.matches("input")) return; // skip this unless it's an input
+    // console.log(e.target);
+    const el = e.target;
+    // console.log(el.dataset.index);
+    const index = el.dataset.index;
+    items[index].done = !items[index.done];
+    localStorage.setItem('items', JSON.stringify(items));
+    populateList(items, itemsList);
+  }
+
   addItems.addEventListener("submit", addItem);
+  itemsList.addEventListener("click", toggleDone);
 
   populateList(items, itemsList);
+
+  //think of clear button
+  //maybe select and unselect all button
