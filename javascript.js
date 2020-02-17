@@ -15,7 +15,7 @@ const addItems = document.querySelector('.add-items');
     // console.log(item);
     items.push(item);
     populateList(items, itemsList);
-    localStorage.setItem('items', items);
+    localStorage.setItem('items', JSON.stringify(items));
     this.reset();
   }
 
